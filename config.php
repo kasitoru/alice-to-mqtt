@@ -1,5 +1,12 @@
 <?php
 
+/*
+	Шлюз между Яндекс.Колонкой и MQTT сервером
+	Author: Sergey Avdeev <thesoultaker48@gmail.com>
+	URL: https://github.com/thesoultaker48/alice-to-mqtt
+*/
+
+
 // Параметры авторизации
 define('ACCESS_ALLOW_PIN_CODE',		'1234');	// Пин-код для добавления новых устройств
 define('INVALID_PIN_CODE_LIMIT',	5);			// Лимит неправильных попыток ввода пин-кода

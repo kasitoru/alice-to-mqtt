@@ -1,5 +1,12 @@
 <?php
 
+/*
+	Шлюз между Яндекс.Колонкой и MQTT сервером
+	Author: Sergey Avdeev <thesoultaker48@gmail.com>
+	URL: https://github.com/thesoultaker48/alice-to-mqtt
+*/
+
+
 include_once 'config.php';
 
 ini_set('error_reporting', 0);
