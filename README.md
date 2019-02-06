@@ -34,7 +34,39 @@ ___
 
 Соответственно *address*, *remote_username* и *remote_password* заменить на свои. В каталог */etc/mosquitto/ca_certificates/* положить файл сертификата [AddTrustExternalCARoot.cer](http://www.tbs-x509.com/AddTrustExternalCARoot.crt).
 
-Если же локальный брокер не используется, то можно подключать Home Assistant непосредственно к CloudMQTT. Читаем про это на [странице документации](https://www.home-assistant.io/docs/mqtt/broker).
+Если же локальный брокер не используется, то можно подключаться непосредственно к CloudMQTT. Читаем про это на [странице документации](https://www.home-assistant.io/docs/mqtt/broker).
+
+В Home Assistant для каждого из подключенных к навыку устройств необходимо прописать автоматизации на включение и отключение:
+
+	- id: '1549298936175'
+	  alias: 'Алиса: Свет в спальне (вкл)'
+	  trigger:
+	  - payload: 'on'
+	    platform: mqtt
+	    topic: /cloudmqtt/bedroom-light
+	  condition:
+	  - condition: state
+	    entity_id: light.bedroom_light
+	    state: 'off'
+	  action:
+	  - data:
+	      entity_id: light.bedroom_light
+	    service: light.turn_on
+
+	- id: '1549298970158'
+	  alias: 'Алиса: Свет в спальне (выкл)'
+	  trigger:
+	  - payload: 'off'
+	    platform: mqtt
+	    topic: /cloudmqtt/bedroom-light
+	  condition:
+	  - condition: state
+	    entity_id: light.bedroom_light
+	    state: 'on'
+	  action:
+	  - data:
+	      entity_id: light.bedroom_light
+	    service: light.turn_off
 
 ##  III. Управление
 Данный шлюз реализован в виде приватного навыка и для получения к нему доступа необходимо произвести авторизацию на каждом из используемых устройств.
