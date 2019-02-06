@@ -15,7 +15,26 @@ ___
 
 Со стороны умного дома приведу пример интеграции с [Home Assistant](https://github.com/home-assistant/home-assistant).
 
-TODO
+Если в вашей системе используется Mosquitto, то необходимо настроить в нем режим моста для внешнего брокера:
+
+	connection cloudmqtt
+	address xxx.cloudmqtt.com:28093
+	remote_username user
+	remote_password password
+	remote_clientid cloudmqtt
+	bridge_protocol_version mqttv311
+	try_private true
+	notifications false
+	start_type automatic
+	topic # both 2 /cloudmqtt/
+	bridge_cafile /etc/mosquitto/ca_certificates/AddTrustExternalCARoot.cer
+	bridge_insecure false
+	cleansession false
+	local_clientid mosquitto
+
+Соответственно *address*, *remote_username* и *remote_password* заменить на свои. В каталог */etc/mosquitto/ca_certificates/* положить файл сертификата [AddTrustExternalCARoot.cer](http://www.tbs-x509.com/AddTrustExternalCARoot.crt).
+
+Если же локальный брокер не используется, то можно подключать Home Assistant непосредственно к CloudMQTT. Читаем про это на [странице документации](https://www.home-assistant.io/docs/mqtt/broker).
 
 ##  III. Управление
 Данный шлюз реализован в виде приватного навыка и для получения к нему доступа необходимо произвести авторизацию на каждом из используемых устройств.
