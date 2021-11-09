@@ -82,6 +82,6 @@ ___
 	Выключи весь свет в доме
 
 ##  IV. Используемые библиотеки
-YANDEX-DIALOGS-PHP: https://github.com/thesoultaker48/yandex-dialogs-php
+YANDEX-DIALOGS-PHP: https://github.com/kasitoru/yandex-dialogs-php
 
 phpMQTT: https://github.com/bluerhinos/phpMQTT

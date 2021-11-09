@@ -3,7 +3,7 @@
 /*
 	Шлюз между Яндекс.Колонкой и MQTT сервером
 	Author: Sergey Avdeev <avdeevsv91@gmail.com>
-	URL: https://github.com/avdeevsv91/alice-to-mqtt
+	URL: https://github.com/kasitoru/alice-to-mqtt
 */
 
 

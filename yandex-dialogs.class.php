@@ -3,7 +3,7 @@
 /*
 	PHP библиотека для разработки навыков Яндекс.Алисы
 	Author: Sergey Avdeev <avdeevsv91@gmail.com>
-	URL: https://github.com/avdeevsv91/yandex-dialogs-php
+	URL: https://github.com/kasitoru/yandex-dialogs-php
 */
 
 
